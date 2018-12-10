@@ -1,5 +1,7 @@
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,27 +13,7 @@
 <body>
 	<div class="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
-		<div class="menu-bg">
-	<ul class="menu">
-		<li><a href="home-appliances.html">Home Appliances</a></li>
-		<li><a href="accessories.html">Accessories</a>
-			<ul>
-				<li><a href="accessories.html" >Tablet</a></li>
-				<li><a href="accessories.html">Camera</a></li>
-				<li><a href="accessories.html">Peripherals</a></li>
-			</ul>
-		</li>
-		<li><a href="computing.html">Computing</a></li>
-		<li><a href="accessories.html" >Mobiles</a></li>
-	</ul> 
-	<div class="search">
-	    <form>
-	    	<input type="text" value="">
-	    	<input type="submit" value="">
-	    </form>
-	</div>
-	<div class="clear"></div>
-</div>
+		
 <div class="flexslider">
    	<div class="flex-viewport" style="overflow: hidden; position: relative;">
    		<ul class="slides" style="width: 100%; -webkit-transition: 0.6s; transition: 0.6s; -webkit-transform: translate3d(-5032px, 0, 0);">
@@ -72,41 +54,34 @@
 	</div>
 </div>
 <div class="text-h">
-	<h2>feature products</h2>
+	<h2>Sản Phẩm Nổi Bật</h2>
 </div>
+
+		<%
+			int i=0; 
+			ArrayList ds=(ArrayList)request.getAttribute("productHot");
+			int size=ds.size();
+		%>
 <div class="section group">
-	<div class="col_1_of_5 span_1_of_5">
-		<div class="grid-img">
-				<a href="details.html"><img src="images/pic4.jpg" alt=""/></a> 
+
+	<c:forEach var="sp" items="${ productHot}" varStatus="count">
+		<%if(i%4==0){%>
+		<div class="section group">
+		<%} %>
+		<div class="col_1_of_5 span_1_of_5" style="height:200px;">
+			<div class="grid-img">
+					<a href="details?sp=${sp.iD }"><img src="${sp.link }" alt="" style="witdh:100%;height: 70px;"/></a> 
+			</div>
+			<p style="white-space: pre;">${sp.name }</p>
+			<p>Khuyến Mại : ${sp.khuyenMai }</p>
+			
+			<button class="left">${sp.giaBan }$ </button>
+			<div class="btn right"><a href="details?sp=${sp.iD }">view</a></div>
+			<%if(i%4==3||(i==size-1)){ %></div><%} i++; %>
 		</div>
-		<p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
-		<button class="left">$23.58</button>
-		<div class="btn right"><a href="details.html">view</a></div>
-	</div>
-	<div class="col_1_of_5 span_1_of_5">
-		<div class="grid-img">
-			<a href="details.html"><img src="images/pic5.jpg" alt=""/></a> 
-		</div>
-		<p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
-		<button class="left">$23.58</button>
-		<div class="btn right"><a href="details.html">view</a></div>
-	</div>
-	<div class="col_1_of_5 span_1_of_5">
-		<div class="grid-img">
-			<a href="details.html"><img src="images/pic6.jpg" alt=""/></a> 
-		</div>
-		<p>Sed do eiusmod tempor incididunt ut laboreet dolore.</p>
-		<button class="left">$23.58</button>
-		<div class="btn right"><a href="details.html">view</a></div>
-	</div>
-	<div class="col_1_of_5 span_1_of_5">
-		<div class="grid-img">
-			<a href="details.html"><img src="images/pic7.jpg" alt=""/></a> 
-		</div>
-		<p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
-		<button class="left">$23.58</button>
-		<div class="btn right"><a href="details.html">view</a></div>
-	</div>
+	</c:forEach>
+	
+
 	
 </div>
 </div>

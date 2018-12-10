@@ -90,7 +90,7 @@ public class CustomerDao {
 	{
 		try {
 
-			String sqlCommand="insert into account(`ID`, `UserName`, `Email`, `Password`, `FirstName`, `LastName`,`Phone`,`Addr`,`Sex`,`UrlAvatar`,`Admin`) value(?,?,?,?,?,?,?,?,?,?,?);";
+			String sqlCommand="insert into account(`ID`, `UserName`, `Email`, `Password`, `FirstName`, `LastName`,`Phone`,`Addr`,`Sex`,`UrlAvatar`,`isAdmin`) value(?,?,?,?,?,?,?,?,?,?,?);";
 			PreparedStatement stmt=ConnectDatabase.getConnection().prepareStatement(sqlCommand);
 			stmt.setInt(1, tmp.getiD());
 			stmt.setString(2, tmp.getUserName());
@@ -138,43 +138,43 @@ public class CustomerDao {
 		switch (index) {
 			case 4:
 			{
-				sqlCmd+="Password='"+customer.getPassword()+"';";
+				sqlCmd+="Password='"+customer.getPassword()+"' where ID='"+customer.getiD()+"';";
 				break;
 			}
 			
 			case 5:
 			{
-				sqlCmd+="FirstName='"+customer.getFirstName()+"';";
+				sqlCmd+="FirstName='"+customer.getFirstName()+"' where ID='"+customer.getiD()+"';";
 				break;
 			}
 			
 			case 6:
 			{
-				sqlCmd+="LastName='"+customer.getLastName()+"';";
+				sqlCmd+="LastName='"+customer.getLastName()+"' where ID='"+customer.getiD()+"';";
 				break;
 			}
 			
 			case 7:
 			{
-				sqlCmd+="Phone='"+Long.toString(customer.getPhone()) +"';";
+				sqlCmd+="Phone='"+Long.toString(customer.getPhone()) +"' where ID='"+customer.getiD()+"';";
 				break;
 			}
 			
 			case 8:
 			{
-				sqlCmd+="Addr='"+customer.getAddr()+"';";
+				sqlCmd+="Addr='"+customer.getAddr()+"' where ID='"+customer.getiD()+"';";
 				break;
 			}
 			
 			case 9:
 			{
-				sqlCmd+="Sex='"+customer.getSex()+"';";
+				sqlCmd+="Sex='"+customer.getSex()+"' where ID='"+customer.getiD()+"';";
 				break;
 			}
 			
 			case 10:
 			{
-				sqlCmd+="UrlAvatar='"+customer.getUrlAvatar()+"';";
+				sqlCmd+="UrlAvatar='"+customer.getUrlAvatar()+"' where ID='"+customer.getiD()+"';";
 				break;
 			}
 				

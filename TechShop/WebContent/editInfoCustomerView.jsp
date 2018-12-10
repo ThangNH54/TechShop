@@ -59,11 +59,31 @@
   opacity: 0;
 }
 </style>
+<script type="text/javascript">
+function checkPass()
+{
+	var password=document.getElementById("password").value;
+	var confirmPassword=document.getElementById("confirmpassword").value;
+	
+	if(confirmPassword==password)
+	{
+		return true;
+	}
+	else
+	{
+		window.alert("Mật Khẩu Xác Thực Không Khớp.")
+		return false;
+	}
+}
+
+</script>
+
+	
 </head>
 <body>
 <div class="wrap">
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="limiter">
+	<div class="limiter" style="padding-top:50px;">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20" >
 					<span style="text-align:center;margin-bottom:50px;">
@@ -95,7 +115,7 @@
 				<c:remove var="msg" scope="request"/>
 				
 				
-				<form action="editInfoCustomer" method="post" class="login100-form validate-form">
+				<form action="editInfoCustomer" method="post" class="login100-form validate-form" onsubmit="return checkPass()">
 					
 					
 					<div class="wrap-input100 validate-input m-t-85 m-b-35">
@@ -136,12 +156,12 @@
 					
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter Password">
 						<span style="margin-left:5px;font-size:18px;">Password</span>
-						<input class="input100" type="password" name="password" value="${sessionScope.account.password }">
+						<input class="input100" type="password" name="password" id="password" value="${sessionScope.account.password }">
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter Confirm Password">
 						<span style="margin-left:5px;font-size:18px;">Confirm Password</span>
-						<input class="input100" type="password" name="confirmPassword" value="${sessionScope.account.password }">
+						<input class="input100" type="password" name="confirmPassword" id="confirmpassword" value="${sessionScope.account.password }">
 					</div>
 					
 					<div class="container-login100-form-btn">

@@ -29,6 +29,25 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<script type="text/javascript">
+function checkPass()
+{
+	var password=document.getElementById("password").value;
+	var confirmPassword=document.getElementById("confirmpassword").value;
+	
+	if(confirmPassword==password)
+	{
+		return true;
+	}
+	else
+	{
+		window.alert("Mật Khẩu Xác Thực Không Khớp.")
+		return false;
+	}
+}
+
+</script>
+
 </head>
 <body>
 <div class="wrap">
@@ -37,7 +56,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
 			
-				<form action="forgotPass" method="post" class="login100-form validate-form">
+				<form action="forgotPass" method="post" class="login100-form validate-form" onsubmit="return checkPass()">
 					<span class="login100-form-title p-b-70">
 						Lấy Mật Khẩu Mới
 					</span>
@@ -48,12 +67,12 @@
 					<div class="msg" style="padding-top: 50px;"><h3>${requestScope.msg}</h3></div><!-- msg thong bao  -->
 					
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" >
-						<input class="input100" type="password" name="password">
+						<input class="input100" type="password" name="password" id="password" required="required">
 						<span class="focus-input100" data-placeholder="New Password"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-50" >
-						<input class="input100" type="password" name="confirmPassword">
+						<input class="input100" type="password" name="confirmPassword" id="confirmpassword" required="required">
 						<span class="focus-input100" data-placeholder="Confirm Password"></span>
 					</div>
 

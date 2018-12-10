@@ -35,7 +35,7 @@
 <div class="wrap"> 
 	<jsp:include page="header.jsp"></jsp:include>
 	<img alt="" src="${img }">
-	<h1 style="text-align:center; magrgin-top:150px;">${requestScope.msg }</h1>
+	<h1 style="text-align:center; magrgin-top:250px;">${requestScope.msg }</h1>
 	
 	<div style="weight:200px;text-align:center;padding-bottom:150px;padding-top:50px;">
 		<a href="index"><button class="btn" style="width:100px;background-color:#57b846; border-radius: 15px;color:White;">HOME</button></a>

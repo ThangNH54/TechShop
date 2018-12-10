@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,15 +31,45 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
+
 </head>
 <body>
+
+
+<script type="text/javascript">
+
+	function checkCode(){
+		
+		var code="${sessionScope.code}";
+		var codeInput=document.getElementById("code-input").value;
+
+		if(code==codeInput)
+		{
+			return true;
+		}
+		
+		else
+		{
+			window.alert("Mã Xác Thực Không Đúng.")
+			return false;
+		}
+		
+		
+	}
+</script>
+
 <div class="wrap">
+
 	<jsp:include page="header.jsp"></jsp:include>
+	
+	
+	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
 			
-				<form action=${sessionScope.action } method="post" class="login100-form validate-form">
+				<form  method="post" class="login100-form validate-form" action="${sessionScope.action }" onsubmit="return checkCode()" >
 				<div style="text-align:center;"><p style="padding-bottom:50px;">verification code has been sent to email :${sessionScope.email }</p></div>
 					<span class="login100-form-title p-b-70">
 									Enter Code :
@@ -47,10 +79,10 @@
 		
 					
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" >
-						<input class="input100" type="text" name="code">
+						<input class="input100" type="text" name="code" id="code-input" required="required">
 						<span class="focus-input100" data-placeholder="Code"></span>
 					</div>
-
+					<c:set var="checkEmail" scope="session" value="true"></c:set>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 						<input type="submit" name="submit" value="">Ok
@@ -58,6 +90,7 @@
 					</div>
 
 				</form>
+				
 			</div>
 		</div>
 	</div>

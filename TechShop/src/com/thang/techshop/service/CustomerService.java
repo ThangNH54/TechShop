@@ -2,6 +2,7 @@ package com.thang.techshop.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
 
 import com.thang.techshop.dao.ConnectDatabase;
 import com.thang.techshop.dao.CustomerDao;

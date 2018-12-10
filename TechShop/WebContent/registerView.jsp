@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +30,24 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
+<script type="text/javascript">
+	function checkPass()
+	{
+		var password=document.getElementById("password").value;
+		var confirmPassword=document.getElementById("confirmpassword").value;
+		
+		if(confirmPassword==password)
+		{
+			return true;
+		}
+		else
+		{
+			window.alert("Mật Khẩu Xác Thực Không Khớp.")
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -37,7 +56,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
 			
-				<form action="checkInfoRegister" method="post" class="login100-form validate-form">
+				<form action="signup" method="post" class="login100-form validate-form" onsubmit="return checkPass()">
 					<span class="login100-form-title p-b-70">
 						Register
 					</span>
@@ -83,14 +102,16 @@
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter Password">
-						<input class="input100" type="password" name="password">
+						<input class="input100" type="password" name="password" id="password">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter confirm password">
-						<input class="input100" type="password" name="confirmPassword">
+						<input class="input100" type="password" name="confirmPassword" id="confirmpassword">
 						<span class="focus-input100" data-placeholder="Confirm Password"></span>
 					</div>
+					
+					<c:set var="checkEmail" scope="session" value="false"></c:set>
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">

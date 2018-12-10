@@ -3,11 +3,19 @@ package com.thang.techshop.controller;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.http.HttpSession;
 
+import com.thang.techshop.dao.CategoryDao;
 import com.thang.techshop.dao.ConnectDatabase;
+import com.thang.techshop.dao.ProductDao;
+import com.thang.techshop.model.Category;
+import com.thang.techshop.model.Product;
 
 public class ApplicationInitListenner implements ServletContextListener {
 	
@@ -31,6 +39,9 @@ public class ApplicationInitListenner implements ServletContextListener {
 		if(ConnectDatabase.initialize(0))
 		{
 			context.setAttribute("connection", ConnectDatabase.getConnection());
+			//lay danh sach san pham
+			ArrayList<Category> dsCategory=CategoryDao.getCategory();
+			context.setAttribute("category", dsCategory);
 		}
 		
 		

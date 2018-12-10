@@ -1,9 +1,10 @@
 eclipse.preferences.version=1
+encoding//WebContent/footer.jsp=UTF-8
+encoding//WebContent/header.jsp=UTF-8
 encoding//src/com/thang/techshop/controller/CheckInfoForgotPass.java=UTF-8
-encoding//src/com/thang/techshop/controller/CheckInfoRegister.java=UTF-8
-encoding//src/com/thang/techshop/controller/EditInfoCustomerController.java=UTF-8
-encoding//src/com/thang/techshop/controller/ForgotPassController.java=UTF-8
-encoding//src/com/thang/techshop/controller/LoginController.java=UTF-8
-encoding//src/com/thang/techshop/controller/RegisterController.java=UTF-8
+encoding//src/com/thang/techshop/controller/ProcessEditCustomerInfo.java=UTF-8
+encoding//src/com/thang/techshop/controller/ProcessForgotPass.java=UTF-8
+encoding//src/com/thang/techshop/controller/ProcessLogin.java=UTF-8
+encoding//src/com/thang/techshop/controller/ProcessRegister.java=UTF-8
 encoding//src/com/thang/techshop/controller/UploadAvatarController.java=UTF-8
 encoding//src/com/thang/techshop/controller/UploadFileController.java=UTF-8
